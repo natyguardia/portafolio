@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Contacto</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Formulario de Contacto</h1>
+  <form id="contactForm">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="message">Mensaje:</label>
+    <textarea id="message" required></textarea>
+
+    <input type="submit" value="Enviar">
+  </form>
+
+  <div id="response"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+css
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#response {
+  margin-top: 20px;
+}
+js
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evitar que se envíe el formulario
+
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
+
+  // Aquí puedes agregar el código para enviar los datos del formulario al servidor
+  // por ejemplo, usando una solicitud AJAX
+
+  // Simulación de envío exitoso
+  var responseDiv = document.getElementById("response");
+  responseDiv.innerHTML = "Gracias por tu mensaje, " + name + "! Te responderemos pronto.";
+  responseDiv.style.color = "green";
+  
+  // Limpiar el formulario
+  document.getElementById("contactForm").reset();
+});
